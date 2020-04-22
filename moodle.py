@@ -8,6 +8,8 @@ import re
 import argparse
 import os
 import time
+import getpass
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-u', help = "Kebros Username", dest = 'username', default ='-1')
@@ -22,7 +24,7 @@ course = args.course
 do_truncate = args.do_truncate
 
 course_dict = {'NEN100' : '8501', 'NIN100' : '8489', 'NLN100' : '8319' , 'MTL101' : '8291', 'MCP101' : '8209',
-				'MCP100' : '8208', 'CMP100' : '7800', 'CML100' : '7778', 'PYP100' : '9281', 'PYP100' : '9238',
+				'MCP100' : '8208', 'CMP100' : '7800', 'CML100' : '7778', 'PYP100' : '9281', 'PYL100' : '9238',
 				'NLN101' : '9218', 'NEN101' : '9217', 'MTL100' : '9188', 'ELL100' : '8890', 'COL100' : '8693'
 
 }
@@ -107,7 +109,7 @@ else:
 
 
 if password == '-1':
-	password = raw_input('enter your kebros password for ' + username + ' : ')
+	password = getpass.getpass(prompt = 'enter your kebros password for ' + username + ' : ')
 
 
 if course == '-1':
