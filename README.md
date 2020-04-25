@@ -12,7 +12,7 @@ pre-requesties:
 
       Firefox web browser
       then run the following commands in your terminal(only in case if gico driver is not found in path):
-      -wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+      - wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
       - mkdir geckodriver
       - tar -xzf geckodriver-v0.24.0-linux64.tar.gz -C geckodriver
       - export PATH=$PATH:$PWD/geckodriver
