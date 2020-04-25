@@ -24,3 +24,6 @@ Usage:
       _> python moodle.py
       to remove saved user name from credentials file just run  _> python moodle.py -r
       
+      _> python -c nen100 
+      will open nen100 course page
+      
