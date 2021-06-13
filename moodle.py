@@ -30,11 +30,11 @@ course_dict = {'NEN100' : '8501', 'NIN100' : '8489', 'NLN100' : '8319' , 'MTL101
 }
 
 def open_courses():
-	print good('opening ' + course )
+	print(good('opening ' + course ))
 	if course.upper() in course_dict:
 		browser.get('https://moodle.iitd.ac.in/course/view.php?id='+course_dict[course.upper()])
 	else:
-		print 'Course link could not be found'
+		print('Course link could not be found')
 	exit()
 
 def loggedin(): #When you are logged in 
@@ -42,12 +42,12 @@ def loggedin(): #When you are logged in
 	try:
 	    myElem = WebDriverWait(browser, delay).until(EC.presence_of_element_located((By.ID, 'page-my-index')))
 	    os.system('clear')
-	    print good(green('Successfully logged in as ' + username))
+	    print(good(green('Successfully logged in as ' + username)))
 	    if course != '-1':
 	    	open_courses()
 
 	except TimeoutException:
-		print bad(red('Check your Internet conection, Loading took too much time!'))
+		print(bad(red('Check your Internet conection, Loading took too much time!')))
 		exit()
 
 
@@ -75,7 +75,7 @@ def login(user,key):#automated login
 def store(username):#stores the username to a txt file named credentials.txt also checks validity of username before storing it.
 	valid_user = re.search('(\w\w\d{7})',username)
 	if valid_user == None:
-		print bad("Invalid username")
+		print(bad("Invalid username"))
 		exit()
 
 	file = open('credentials.txt','w')
@@ -102,7 +102,7 @@ if username == '-1':
 	if os.path.isfile('credentials.txt') and readfile() is not '':
 		username = readfile()
 	else:
-		username = raw_input('enter your kebros username: ')
+		username = input('enter your kebros username: ')
 		store(username)
 else:
 	store(username)
@@ -113,7 +113,7 @@ if password == '-1':
 
 
 if course == '-1':
-	course = raw_input('Enter Course code like \'NLN100\' (empty to skip) : ')
+	course = input('Enter Course code like \'NLN100\' (empty to skip) : ')
 	if course == '':
 		course = '-1'
 
@@ -124,4 +124,4 @@ try:
 	browser.accept_untrusted_certs = True
 	login(username,password)
 except Exception as exp:
-	print "\n" + bad(str(exp))
+	print("\n" + bad(str(exp)))
